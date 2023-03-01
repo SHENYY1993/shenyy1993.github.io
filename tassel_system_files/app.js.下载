@@ -1,0 +1,828 @@
+// 下拉框
+$(function () {
+
+    // 动画初始化
+    let wow = new WOW({
+        boxClass: 'wow',
+        animateClass: 'animated',
+        offset: 0,
+        mobile: true,
+        live: true
+    });
+    wow.init();
+
+    let navs = $('.navbar-nav').children('.nav-item');
+    if ($(window).width() < 1200) {
+        navs.each(function () {
+            $(this).click(function () {
+                $(this).children('.nav-down').stop().slideToggle();
+            })
+        })
+    } else {
+        navs.each(function () {
+            $(this).mouseover(function () {
+                $(this).children('.nav-down').stop().fadeIn();
+            });
+            $(this).mouseout(function () {
+                $(this).children('.nav-down').stop().fadeOut();
+            });
+        })
+    }
+})
+
+// banner调到某个位置
+$(function () {
+    if ($('.ultimate').length > 0) {
+        let im = $('.banner-down');
+        let h = $('.ultimate').offset().top;
+        im.click(function () {
+            $('body,html').animate({
+                scrollTop: h
+            },
+                500);
+            return false;
+        })
+    }
+
+})
+
+// video控制
+$(function () {
+    let p = $('.ultimate-play');
+    p.click(function () {
+        $('#ultimateVideo').trigger('play');
+        $(this).fadeOut();
+    })
+    $('.ultimate-box').click(function () {
+        $('#ultimateVideo').trigger('pause');
+        p.fadeIn();
+    })
+})
+
+// 首页产品
+$(function () {
+    let navs = $('.hproduct-toggle').children();
+    let h = $('.hproduct-left').outerHeight(true);
+    let list = $('.hproduct-navs').children('li');
+    $('.swiper1').each(function () {
+        $(this).find('.swiper-index-two').html($(this).find('.swiper-slide').length);
+    })
+    navs.each(function () {
+        $(this).on({
+            click() {
+                let n = $(this).attr('data-names');
+                if (n == 'hproductin') {
+                    $('.hproduct-left').animate({
+                        height: h
+                    });
+                    if ($(window).width() >= 1200) {
+                        $('.hproduct-left').animate({
+                            height: '100%'
+                        })
+                    }
+                    $(this).attr('src', 'Public/Home/default/styles/images/hproductin-active.png');
+                    $(this).siblings().attr('src', 'Public/Home/default/styles/images/hproductout.png');
+                } else {
+                    if ($(window).width() >= 1200) {
+                        $('.hproduct-left').animate({
+                            height: '185px'
+                        })
+                    } else {
+                        $('.hproduct-left').animate({
+                            height: '135px'
+                        });
+                    }
+                    $(this).attr('src', 'Public/Home/default/styles/images/hproductout-active.png');
+                    $(this).siblings().attr('src', 'Public/Home/default/styles/images/hproductin.png');
+                }
+            }
+        })
+    });
+
+    if ($(window).width() >= 992 && $(window).width() < 1200) {
+        var mySwiper = new Swiper('.swiper1', {
+            slidesPerView: 3,
+            spaceBetween: 100,
+            centeredSlides: true,
+            observer: true,
+            observeParents: true,
+            loop:true,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'progressbar',
+            },
+            on: {
+                slideChangeTransitionEnd: function () {
+                    list.eq(this.realIndex).addClass('hproduct-active').siblings().removeClass('hproduct-active');
+                },
+            },
+        });
+    } else if ($(window).width() >= 1200) {
+        var mySwiper = new Swiper('.swiper1', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            centeredSlides: true,
+            observer: true,
+            observeParents: true,
+            slideToClickedSlide: true,
+            loop:true,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'progressbar',
+            },
+            on: {
+                slideChangeTransitionEnd: function () {
+                    list.eq(this.realIndex).addClass('hproduct-active').siblings().removeClass('hproduct-active');
+                },
+            },
+        });
+    } else {
+        // swiper
+        var mySwiper = new Swiper('.swiper1', {
+            centeredSlides: true,
+            observer: true,
+            observeParents: true,
+            slideToClickedSlide: true,
+            loop:true,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'progressbar',
+            },
+            on: {
+                slideChangeTransitionEnd: function () {
+                    list.eq(this.realIndex).addClass('hproduct-active').siblings().removeClass('hproduct-active');
+                },
+            },
+        });
+    }
+
+    list.each(function (index) {
+        $(this).attr('data-index', index);
+        $(this).on({
+            click() {
+                let i = $(this).attr('data-index');
+                list.eq(i).addClass('hproduct-active').siblings().removeClass('hproduct-active');
+                mySwiper.slideTo(i); //切换到第一个slide，速度为1秒
+            }
+        })
+    })
+
+    // 数字滚动
+    $('.counter').countUp({
+        delay: 10,
+        time: 2000
+    });
+})
+
+// 返回顶部
+$(function () {
+    $(window).scroll(function () {
+        let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        //如果大于1000px，则让a标签显示
+        if (scrollTop > 1000) {
+            $('.fade-top').fadeIn();
+        } else {
+            $('.fade-top').fadeOut();
+        }
+    });
+    $('.fade-top').click(function () {
+        $("html,body").animate({
+            scrollTop: "0px"
+        }, 500); //500毫秒完成回到顶部动画
+    })
+})
+
+// 文档手册
+$(function () {
+    let list = $('.document-ulst').children('li');
+    let dvst = $('.document-cont').children('.document-items');
+    dvst.eq(0).show();
+    list.each(function (index) {
+        $(this).attr('data-index', index);
+
+        $(this).on({
+            click() {
+                let i = $(this).attr('data-index');
+                $(this).addClass('document-active').siblings().removeClass('document-active');
+
+                dvst.eq(i).show().siblings().hide();
+            }
+        })
+    })
+})
+
+// 产品详情
+$(function () {
+    // 视频放大缩小
+
+    // if ($(window).width() < 1200) {
+    //     $('.details-three-box').html(`<img src='https://dji-official-fe.djicdn.com/dps/88ef1fe641f98537e32d211c6862f059.jpg'>`)
+    // }
+    if ($(".details-three-box").length > 0) {
+        if ($(window).width() >= 1200) {
+            let w = $('.details-three-box').width();
+            $(window).scroll(function () {
+                let sTop = $(this).scrollTop(); //获取滚动条的位置
+                let sh = $(window).height();//视口高度
+                let ft = $(".details-three-box").offset().top//指定元素距离文档顶部高度
+                let hh = $(".details-three-box").height();
+                // 滚动条位置 大于 指定元素减去 视口高度时
+                if (sTop >= (ft - sh)) { //当底部出现在视口时 触发
+                    $('#detailsVideo').trigger('play');
+                    $('#detailsVideo').muted = false;
+                }
+                if (sTop >= ft) {
+                    $('.details-three-box').animate({
+                        'width': $(window).width(),
+                        // 'height': $(window).height() + 300
+                        'height': 'auto'
+                    }, () => {
+                        $('.details-three-box').stop(true, true);
+                    })
+                    $('.details-three-box').removeClass('nh')
+                }
+                if (sTop < ft) {
+                    $('.details-three-box').stop(true, true);
+                    $('.details-three-box').addClass('nh')
+                }
+            })
+        }
+    }
+})
+
+// 
+$(function () {
+    let im = $('.article-video');
+    let cl = $('.diloag-close');
+    im.click(function () {
+        let vid = $(this).parent().parent().find('#ultimateVideo');
+        $(this).parent().siblings('.diloag').show();
+        vid.trigger('play');
+        $(this).parent().siblings('.diloag').children('.diloag-box').find('#ultimateVideo').attr('autoplay', 'autoplay');
+        let top = $(document).scrollTop();
+        $(document).on('scroll.unable', function (e) {
+            $(document).scrollTop(top);
+        })
+    })
+
+    cl.click(function () {
+        $(this).parent().parent('.diloag').hide();
+        $(this).siblings('#ultimateVideo').removeAttr('autoplay');
+        $(this).siblings('#ultimateVideo').trigger('pause');
+        $(document).unbind("scroll.unable");
+    })
+
+})
+
+$(function () {
+    let im = $('.article-videoed');
+    let cl = $('.diloag-close');
+    im.click(function () {
+        $(this).parent().siblings('.diloag').show();
+        $(this).parent().siblings('.diloag').children('.diloag-box').find('#ultimateVideo').trigger('play');
+        $(this).parent().siblings('.diloag').children('.diloag-box').find('#ultimateVideo').attr('autoplay', 'autoplay');
+        
+    })
+
+    cl.click(function () {
+        $(this).parent().parent('.diloag').hide();
+        $(this).siblings('#ultimateVideo').removeAttr('autoplay');
+        $(this).siblings('#ultimateVideo').trigger('pause');
+        
+    })
+})
+
+// 工作地点
+$(function () {
+    $('.position-right-top-items').css({ overflow: 'hidden' });
+    let more = $('.position-more');
+    let flag = false;
+    $('.position-right-top').children('.position-right-top-items').each(function () {
+        let u = $(this).find('.position-right-top-items-ulst').outerHeight();
+        $(this).children($('.position-more')).click(function () {
+            if ($(window).width() >= 992) {
+                if ($(this).siblings('ul').height() > 50) {
+                    if (!flag) {
+                        $(this).parent($('.position-right-top-items')).animate({
+                            height: u
+                        })
+                        flag = true;
+                        
+                        // $(this).children($('.position-more')).html('收起');
+                    }
+                    else {
+                        $(this).parent($('.position-right-top-items')).animate({
+                            height: '45px'
+                        })
+                        flag = false;
+                        // $(this).html('更多');
+                    }
+                }
+            }
+            else if ($(window).width() < 992) {
+                if ($(this).siblings('ul').height() > 50) {
+                    if (!flag) {
+                        $(this).parent($('.position-right-top-items')).animate({
+                            height: u
+                        })
+                        flag = true;
+                        $(this).html('收起');
+                    }
+                    else {
+                        $(this).parent($('.position-right-top-items')).animate({
+                            height: '35px'
+                        })
+                        flag = false;
+                        $(this).html('更多');
+                    }
+                }
+            }
+        })
+    })
+})
+
+// 联系我们弹窗
+$(function () {
+    let dv = $('.contacts-btn');
+    let btn = $('.diloag-close');
+    dv.click(function () {
+        $('.contacts-diloag').stop().fadeIn();
+    })
+
+    btn.click(function () {
+        $('.contacts-diloag').stop().fadeOut();
+    })
+})
+
+// 投递弹窗
+$(function () {
+    
+    function getClick(el,par,cl) {
+        el.click(function () {
+            $(this).parent().siblings(par).stop().fadeIn();
+            var tops = $(document).scrollTop()
+            $(document).bind("scroll",function (){
+                $(document).scrollTop(tops); 
+            });
+        })
+        cl.click(function () {
+            $(document).unbind("scroll");
+            $(this).parents(par).stop().fadeOut();
+        })
+    }
+    
+    getClick($('.table-join'),'.table-dilaog',$('.table-close'));
+    
+    getClick($('.table-see'),'.seejl-dilaog',$('.table-close'));
+    
+    // $('.table-join').click(function () {
+    //     $(this).parent().siblings('.table-dilaog').stop().fadeIn();
+    //     var tops = $(document).scrollTop()
+    //     $(document).bind("scroll",function (){
+    //         $(document).scrollTop(tops); 
+    //     });
+    // })
+    // $('.table-close').click(function () {
+    //     $(document).unbind("scroll");
+    //     $(this).parent().parent('.table-dilaog').stop().fadeOut();
+    // })
+})
+
+// 分子公司显示
+$(function () {
+    if ($(window).width() >= 992) {
+        $('.small-window').hide();
+        $('.bg-window').show();
+    }
+    else {
+        $('.small-window').show();
+        $('.bg-window').hide();
+    }
+})
+
+// 详情页轮播图
+$(function () {
+
+    let swiper1Per = 0;
+
+    let swiper2Per = 0;
+
+    if ($(window).width() < 1600) {
+        swiper1Per = 1;
+
+    } else {
+        swiper1Per = 2;
+    }
+
+    if ($(window).width() < 576) {
+        swiper2Per = 2;
+    } else if ($(window).width() < 992) {
+        swiper2Per = 2;
+    }
+    else {
+        swiper2Per = 3;
+    }
+
+    let swiper1 = new Swiper('.direct-swiper1', {
+        slidesPerView: swiper1Per,
+        slideToClickedSlide: true,
+        spaceBetween: 10,
+        loop: true,
+        freeMode: true,
+
+    });
+
+    let swiper2 = new Swiper('.direct-swiper2', {
+        slidesPerView: swiper2Per,
+        slideToClickedSlide: true,
+        spaceBetween: 10,
+        loop: true,
+        freeMode: true,
+
+    });
+
+    let swiper3 = new Swiper('.direct-swiper3', {
+        slidesPerView: swiper2Per,
+        slideToClickedSlide: true,
+        spaceBetween: 10,
+        loop: true,
+        freeMode: true,
+
+    });
+})
+
+// 产品详情页
+$(function () {
+    if ($('#five-rotate').length > 0) {
+        let n = 10;
+        setInterval(() => {
+            n += 5;
+            $('#five-rotate').css({
+                'transform': 'rotate(' + n + 'deg)'
+            })
+        }, 100)
+    }
+
+    let prodetailSwiper = new Swiper('.prodetail-swiper', {
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+    $('.prodetail-btn').click(function () {
+        $('.dialog-display').show();
+        let top = $(document).scrollTop();
+        $(document).on('scroll.unable', function (e) {
+            $(document).scrollTop(top);
+        })
+    })
+    $('.dialog-close').click(function () {
+        $('.dialog-display').hide();
+        $(document).unbind("scroll.unable");
+    })
+})
+
+// 关于我们轮播图
+$(function () {
+    let view = 3;
+    let dep = 0;
+    if ($(window).width() >= 768 && $(window).width() < 992) {
+        view = 4;
+    }
+    else if ($(window).width() >= 992 && $(window).width() < 1200) {
+        view = 5;
+    }
+    else if ($(window).width() >= 1200) {
+        view = 6;
+    }
+    let swiper = new Swiper('.about-swiper', {
+        slidesPerView: view,
+        spaceBetween: 10,
+        freeMode: true,
+    });
+
+    if ($(window).width() < 992) {
+        let swiper3 = new Swiper('.five-swiper', {
+            slidesPerView: 2,
+            spaceBetween: 15,
+            slideToClickedSlide: true,
+            loop: true
+        });
+    }
+    else {
+        let swiper3 = new Swiper('.five-swiper', {
+            effect: 'coverflow',
+            spaceBetween: 0,
+            centeredSlides: true,
+            slideToClickedSlide: true,
+            grabCursor: true,
+            loop: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 20,
+                stretch: 0,
+                depth: 300,
+                modifier: 1,
+                slideShadows: true,
+            },
+        });
+    }
+
+    let swiper4 = new Swiper('.six-swiper', {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 15,
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+})
+
+// 2021详情页
+$(function () {
+    let swiper = new Swiper('.newtwos-swiper', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        loop:true,
+        coverflowEffect: {
+          rotate: 50,
+          stretch: 0,
+          depth: 200,
+          modifier: 1,
+          slideShadows: true,
+        },
+      });
+})
+
+// 首页视频播放
+$(function () {
+    $('.banner-box').children('video').removeAttr('muted')
+    $('.banner-box').children('video').trigger('play');
+})
+
+// 头部弹窗
+$(function () {
+
+  function openFloat(el,f) {
+    el.click(function () {
+      f.show();
+      f.find('video').attr('autoplay','autoplay').trigger("play");
+      $('.animated').css({
+        'animationFillMode':'none'
+      })
+    });
+  }
+
+  openFloat($('.see-video'),$('.twentyone-banner-float'));
+  openFloat($('.terrain-btn'),$('.twentyone-terrain-float'));
+
+  function closeFloat(c,f) {
+    c.click(function () {
+      f.hide();
+      f.find('video').removeAttr('autoplay').trigger("pause");
+      $('.animated').css({
+        'animationFillMode':'both'
+      })
+    })
+  }
+
+  closeFloat($('.twentyone-banner-close'),$('.twentyone-banner-float'));
+  closeFloat($('.twentyone-terrain-close'),$('.twentyone-terrain-float'));
+
+})
+
+// 视频播放
+$(function () {
+  $('.twentyone-video-play').click(function () {
+    $(this).siblings('video').trigger('play');
+    $(this).fadeOut();
+  });
+  $('.height-video').click(function () {
+    $(this).trigger('pause');
+    $(this).siblings('.twentyone-video-play').fadeIn();
+  })
+})
+
+// 微信浏览器首页视频兼容
+$(function () {
+    let video = $("#banner-video");
+   
+    console.log(video)
+    if (window.WeixinJSBridge) {
+        WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+            video.removeAttr('autoplay');
+            video.attr({'controls':true});
+            video.css({
+                'width':'100%'
+            })
+            video.play();
+        }, false);
+    } else {
+        document.addEventListener("WeixinJSBridgeReady", function () {
+            WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+            video.removeAttr('autoplay');
+            video.attr({'controls':true});
+            video.css({
+                'width':'100%'
+            })
+                video.play();
+            });
+        }, false);
+    }
+    video.play();
+})
+
+// 简历上传
+$(function () {
+    function getFileName(o){
+        var pos=o.lastIndexOf("\\");
+        return o.substring(pos+1);  
+    }
+    $('.inputfile').on({
+        change() {
+            let file = $(this).val();
+            let fileName = getFileName(file);
+            if(fileName.length>0) {
+                var fileItem = $(this)[0].files[0]
+                var formData = new FormData();
+                    formData.append('file', fileItem)
+                    formData.append('type', '1')
+                $.ajax ({
+                    type : "post",
+                    url : "guestbook/upload",
+                    data : formData,
+                    async : true,
+                    cache : false,
+                    contentType : false,
+                    processData : false,
+                    dataType : 'json',
+                    success : function (res) {
+                        console.log(res)
+                        if(res.state=='SUCCESS') {
+                            $('.upload-show').show();
+                            $(".upload-show-text").html(res.info[0].name);
+                            $('.upload-show-inp').val(res.info[0].url)
+                        }
+                    }
+                });
+            }
+        }
+    })
+   
+})
+
+$(function () {
+  let btnOfset = $('.eaxone-btn').offset().top;
+  $('.eaxone-outbtn').css({
+      top:btnOfset+'px'
+  })
+  $('.eaxone-outbtn').on({
+    mouseover() {
+      $('.eaxone-btn').css({
+        backgroundColor: '#197889',
+      })
+    },
+    mouseleave() {
+      $('.eaxone-btn').css({
+        backgroundColor: 'transparent',
+      })
+    },
+    click() {
+      console.log(1)
+    },
+  })
+  $(window).on({
+    scroll() {
+      if ($('.eaxone-btn').offset().top >= $('.eaxone').outerHeight()) {
+        $('.eaxone-outbtn').hide()
+      } else {
+        $('.eaxone-outbtn').show()
+      }
+    },
+  })
+})
+
+$(function () {
+  let one = $('.eaxtwo-ulst').children('li').eq(0)
+  let two = $('.eaxtwo-ulst').children('li').eq(1)
+  if(one.length>0) {
+      $(window).on({
+        scroll() {
+          let outHeight =
+            $(window).scrollTop() +
+            $('.eaxtwo').offset().top -
+            $('.eaxone').outerHeight() / 3
+          if (outHeight >= one.offset().top) {
+            one.addClass('eaxtwo-show').siblings().removeClass('eaxtwo-show')
+          } else {
+            one.removeClass('eaxtwo-show')
+          }
+          if (outHeight >= two.offset().top) {
+            two.addClass('eaxtwo-show').siblings().removeClass('eaxtwo-show')
+          }
+        },
+      })
+  }
+})
+
+$(function () {
+  let thr = $('.eaxthree-imgs').outerHeight()
+  let thrOf = $('.eaxthree').offset().top
+
+  class ScrFn {
+    constructor() {
+      this.scrChange()
+    }
+    scrChange() {
+      if ($(window).scrollTop() + thr >= thrOf) {
+        let nums = -$(window).scrollTop() / 3800 + 2
+        if (nums <= 1) {
+          nums = 1
+        }
+        $('.eaxthree')
+          .find('.eaxthree-imgs')
+          .css({
+            transform: `scale(${nums})`,
+          })
+        if ($(window).scrollTop() >= thrOf) {
+          $('.eaxthree')
+            .find('.eaxthree-name')
+            .css({
+              opacity: 0 + $(window).scrollTop() / 3000,
+              transform: `translate(-50%,-50%) scale(${nums})`,
+            })
+        } else {
+          $('.eaxthree').find('.eaxthree-name').css({
+            opacity: 0,
+          })
+        }
+      }
+    }
+  }
+
+  new ScrFn()
+
+  $(window).on({
+    scroll() {
+      new ScrFn()
+    },
+  })
+})
+
+$(function () {
+    function fontScroll(el) {
+      let fr = el.find('.eaxfive-cont').outerHeight()
+      let frOf = el.offset().top;
+      let doHeight = $(document.body).height();
+      let windowWidth = $(window).height()
+      if ($(window).width() >= 768) {
+        $(window).on({
+          scroll() {
+            let ftxt = el.find('.eaxfive-box').offset().top;
+            if(ftxt>=$(window).scrollTop() && ftxt<($(window).scrollTop()+$(window).height())) {
+                let er = parseInt((($(window).scrollTop()+$(window).height())-ftxt) /100) / 10;
+                if(er<=((windowWidth+el.find('.eaxfive-box').outerHeight())-(($(window).scrollTop()+$(window).height())-ftxt))/1000) {
+                    el.find('.eaxfive-box').css({
+                      opacity: er * 2,
+                    })
+                }
+                else {
+                    el.find('.eaxfive-box').css({
+                      opacity: 1-er,
+                    })
+                }
+            }
+            else {
+                el.find('.eaxfive-box').css({
+                      opacity: 0,
+                })
+            }
+          },
+        })
+    }
+  }
+  
+  if($('.eaxfive').length>0) {
+      fontScroll($('.eaxfive'));
+      fontScroll($('.eaxfont1'));
+      fontScroll($('.eaxfont2'));
+      fontScroll($('.eaxfont3'));
+      fontScroll($('.eaxfont4'));
+      fontScroll($('.eaxfont5'));
+      fontScroll($('.eaxfont6'));
+  }
+})
+
+$(function () {
+    $('.eaxone-outbtn').on({
+        click() {
+            $(this).siblings('.diloag').show()
+        }
+    })
+})

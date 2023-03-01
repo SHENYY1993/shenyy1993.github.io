@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/card.css">
+    <link rel="stylesheet" href="./tassel_system_files/base.css">
+    <link rel="stylesheet" href="./css/image-slider-container.css"/>
+    <script src="./js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            background: url(./img/life/20141012_132344.jpg);
+        }
+
+        #hanoi-vedio {
+            margin-top: 30px;
+            width: 75%;
+            height: 500px;
+        }
+    </style>
+    <script type="text/javascript" src="./js/anime.min.js"></script>
+    <script defer="" type="text/javascript" src="./js/fireworks.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+<section class="image-slider-container" id="swiper-top-1">
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background-image: url(./img/life/20140829_004316.jpg)"></div>
+            <div class="swiper-slide" style="background-image: url(./img/life/20141012_132344.jpg)"></div>
+            <div class="swiper-slide" style="background-image: url(./img/life/20141018_115657.jpg)"></div>
+            <div class="swiper-slide" style="background-image: url(./img/life/20141025_115248.jpg)"></div>
+            <div class="swiper-slide" style="background-image: url(./img/life/20141025_130807.jpg)"></div>
+            <div class="swiper-slide" style="background-image: url(./img/life/20141026_125210.jpg)"></div>
+            <div class="swiper-slide" style="background-image: url(./img/life/20141026_170920.jpg)"></div>
+            <div class="swiper-slide" style="background-image: url(./img/life/20141028_133744.jpg)"></div>
+            <div class="swiper-slide" style="background-image: url(./img/life/20141121_163816.jpg)"></div>
+            <div class="swiper-slide" style="background-image: url(./img/life/20141121_164321.jpg)"></div>
+            <div class="swiper-slide" style="background-image: url(./img/life/IMG_20141206_155156.jpg)"></div>
+            <div class="swiper-slide" style="background-image: url(./img/life/IMG_20141206_171950.jpg)"></div>
+            <div class="swiper-slide" style="background-image: url(./img/life/IMG_20141231_164946.jpg)"></div>
+        </div>
+    </div>
+    <!--    <div class="image-slider-heading">-->
+    <!--        <h2 class="image-slider-title">-->
+    <!--        </h2>-->
+    <!--        <div class="swiper-pagination"></div>-->
+    <!--    </div>-->
+</section>
+
+<!--轮播图展示区域-->
+<div id="swiper-top" class="carousel slide" data-bs-ride="carousel" style="height: 0px; visibility: hidden">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#swiper-top" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#swiper-top" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#swiper-top" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#swiper-top" data-bs-slide-to="3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item swiper-block-top active"
+             style="background-image: url(./img/life/20140829_004316.jpg)">
+            <div class="carousel-caption">
+                <h2>拉德芳斯</h2>
+            </div>
+        </div>
+        <div class="carousel-item swiper-block-top"
+             style="background-image: url(./img/life/20141012_132344.jpg)">
+            <div class="carousel-caption">
+                <h2 style="color:black">Vahana is an all-electric, single-seat, tilt-wing vehicle eVTOL.</h2>
+            </div>
+        </div>
+        <div class="carousel-item swiper-block-top"
+             style="background-image: url(./img/life/20141018_115657.jpg)">
+            <div class="carousel-caption">
+                <h2>CityAirbus is an all-electric, four-seat eVTOL.</h2>
+            </div>
+        </div>
+        <div class="carousel-item swiper-block-top"
+             style="background-image: url(./img/life/20141025_115248.jpg)">
+            <div class="carousel-caption">
+                <h2>我是一名工程师</h2>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#swiper-top" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#swiper-top" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<div id="whole-container" style="width: 100%; padding-left: 20px;padding-right: 20px">
+    <nav class="navbar navbar-expand-sm transparent navbar-dark fixed-top"
+         style="background-color:rgba(79, 0, 143, 0.335);">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="nav-item transparent">
+                    <a class="nav-link"
+                       href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#swiper-top-1">视界</a>-->
+<!--                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" href="#self">个人介绍</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+<!--                <li style="padding-right: 30px; padding-left: 15px; alignment: right" title="我的github">-->
+<!--                    <a href="https://github.com/SHENYY1993" class="item">-->
+<!--                        <svg xmlns="http://www.w3.org/2000/svg"-->
+<!--                             xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"-->
+<!--                             class="iconify iconify&#45;&#45;ri icon" width="2em" height="2em"-->
+<!--                             preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24" data-icon="ri:github-line">-->
+<!--                            <path fill="purple"-->
+<!--                                  d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588c-.094-.117.34.427.433.539c.19.227.33.365.44.438c.204.137.587.196 1.15.14c.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292c-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047c.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308c1.477-.933 2.613-1.226 3.422-1.096c.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19c.691.936 1.058 2.045 1.058 3.293c0 3.757-1.674 5.665-4.642 6.392c.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716a1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446l.005-.705c.005-.708.007-1.338.007-1.998c0-.697-.183-1.152-.425-1.36c-.661-.57-.326-1.655.54-1.752c2.967-.333 4.337-1.482 4.337-4.66c0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947c-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66c.865.097 1.201 1.177.544 1.748c-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z">-->
+<!--                            </path>-->
+<!--                        </svg>-->
+<!--                    </a>-->
+<!--                </li>-->
+            </ul>
+        </div>
+    </nav>
+
+    <!--个人介绍-->
+    <div id="self" class="card">
+        <h3>个人介绍</h3>
+
+        <div class="photo" style="z-index: 1">
+            <img src="./img/avatar.jpg" alt="Benjamin">
+        </div>
+
+        <!--基本信息-->
+        <div style="position: absolute; top: 80px;left:200px; z-index: 0;">
+            <span style="font-size: 20px; font-weight: bold">沈杨杨</span>
+            <br>
+            <span style="overflow: hidden;text-overflow:ellipsis;white-space:nowrap">南京航空航天大学硕士 | 巴黎达芬奇高等工程师学院</span>
+            <br>
+            <span style="overflow: hidden;text-overflow:ellipsis;white-space:nowrap">邮箱：shen_yangyang163@163.com</span>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    </div>
+
+    <!--工作经历模块-->
+
+
+    <!--项目经历模块-->
+    <div id="project_exp" class="card">
+        <h3>项目经历</h3>
+        <!--项目经历1-->
+        <div class="module">
+            <br>
+            <div style="display: flex">
+                <div style="display: inline-block; flex: 1; margin-right: 20px">
+                    <pre class="title3">智慧农业系统项目</pre>
+                    <ul>
+                        <li>
+                            <span>项目主要开发应用于制种行业的智慧农业系统。个人负责系统出苗率检测模块的需求定义、原型设计、后台和移动端软件设计与开发，以及出苗率检测相关算法设计。系统v1.0版本已验收并上线使用。</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="swiper_project_1" class="carousel slide" data-bs-ride="carousel"
+                     style="display: inline-block; width: 800px">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#swiper_project_1" data-bs-slide-to="0"
+                                class="active"></button>
+                        <button type="button" data-bs-target="#swiper_project_1" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#swiper_project_1" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#swiper_project_1" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#swiper_project_1" data-bs-slide-to="4"></button>
+                        <button type="button" data-bs-target="#swiper_project_1" data-bs-slide-to="5"></button>
+                        <button type="button" data-bs-target="#swiper_project_1" data-bs-slide-to="6"></button>
+                        <button type="button" data-bs-target="#swiper_project_1" data-bs-slide-to="7"></button>
+                        <button type="button" data-bs-target="#swiper_project_1" data-bs-slide-to="8"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item swiper-block active"
+                             style="background-image: url(./img/hub/hub_web_batch.png)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/hub/hub_web_prod_detect.png)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/hub/hub_web_prod_single_detect.png)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/hub/hub_web_prod_single_detect_block.png)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/hub/hub_web_prod_report.png)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/hub/hub_web_trial_detect.png)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/hub/hub_web_trial_block_score.png)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/hub/web_architecture.png)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/hub/detect_model.png)">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#swiper_project_1"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#swiper_project_1"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+            <a href="https://spms.lpht.com.cn/hubtest/login">
+                <span>了解详情</span>
+                <span style=" height: 11px;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAWCAYAAAD0OH0aAAABwElEQVQ4T5WSvWtTYRTGf89NNdpFbB0qDi7FQZ2UoqW5aRYndVEncfWr0BuDIm7e1UHbGwtqwEk3B10c/IKY21LFuqh/QRedKhRsEZJ75Cb3hmpuAp7tfc/zO+953nPEf4ZSvevZrMS+RqBbg2oI35ziT+bM8GKhxJVGoEf9oBR4ZsaZRNREnAoDvcqC2i0dvWTDwzuoAxPx2WDdiSg0FvT1X6jrYWLGxvI5PkjsT0SrOBwP5/V9K9QF4supih1ymiwhdiV+Vn5tMv25po0U+guIL6fLdiIyXgLb2iLxItzNWXxFnWNGuGW7iFHbkroXVnW9LxAnXM/uADe7kMNMOK8HmS+0RWZyr7GCcST97kgc7gsUPTtvxlPUaVtQa1R1ORMoeVZowVsgn1R/nRvhZN1XswcoVWy81WIZ2JNU/vbbmPp4X+s9picrNjLUER/o+OBHJI4tVbXaM4eDvm0fXeMNUOx4ZiPnUHof6FPmpN2yPcG4kOxSPKRzi1U9z9ylgme3BX6aNHFjMdDdrKGq5NtQa413aSvAw7Cqq1nirunxWcvvFY+B0dwXTtfrag4E0uRkxXYuz2mzn3jgLvWD/gCrlY7nR38C7wAAAABJRU5ErkJggg=="
+                     style="height: 11px; margin-left: 6px;">
+                </span>
+            </a>
+        </div>
+        <br>
+        <!--项目经历2-->
+        <div class="module">
+            <br>
+            <div style="display: flex">
+                <div id="swiper_project_2" class="carousel slide" data-bs-ride="carousel"
+                     style="display: inline-block; width: 800px">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#swiper_project_2" data-bs-slide-to="0"
+                                class="active"></button>
+                        <button type="button" data-bs-target="#swiper_project_2" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#swiper_project_2" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#swiper_project_2" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#swiper_project_2" data-bs-slide-to="4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item swiper-block active"
+                             style="background-image: url(./img/app/app_login.jpg)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/app/app_connect.png)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/app/app_execute.png)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/app/app_execute_full_coverage.png)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/app/app_architecture.png)">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#swiper_project_2"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#swiper_project_2"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+                <div style="display: inline-block; flex: 1; margin-right: 20px">
+                    <pre class="title3">自动飞行地面站项目</pre>
+                    <ul>
+                        <li><span>项目基于DJI MSDK开发了控制无人机自动飞行采图的移动端地面站软件。所开发地面站软件具备三维航线规划、自动飞行控制（仿地飞行）、图像采集回传、无人机状态实时监测记录等功能。个人负责项目管理、路径规划与控制算法设计，及软件设计与实现（Java/Kotlin）。地面站平台已应用于玉米去雄等田间管理。</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <a href="tassel_system.html" style="float: right;">
+                <span>了解详情</span>
+                <span style=" height: 11px;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAWCAYAAAD0OH0aAAABwElEQVQ4T5WSvWtTYRTGf89NNdpFbB0qDi7FQZ2UoqW5aRYndVEncfWr0BuDIm7e1UHbGwtqwEk3B10c/IKY21LFuqh/QRedKhRsEZJ75Cb3hmpuAp7tfc/zO+953nPEf4ZSvevZrMS+RqBbg2oI35ziT+bM8GKhxJVGoEf9oBR4ZsaZRNREnAoDvcqC2i0dvWTDwzuoAxPx2WDdiSg0FvT1X6jrYWLGxvI5PkjsT0SrOBwP5/V9K9QF4supih1ymiwhdiV+Vn5tMv25po0U+guIL6fLdiIyXgLb2iLxItzNWXxFnWNGuGW7iFHbkroXVnW9LxAnXM/uADe7kMNMOK8HmS+0RWZyr7GCcST97kgc7gsUPTtvxlPUaVtQa1R1ORMoeVZowVsgn1R/nRvhZN1XswcoVWy81WIZ2JNU/vbbmPp4X+s9picrNjLUER/o+OBHJI4tVbXaM4eDvm0fXeMNUOx4ZiPnUHof6FPmpN2yPcG4kOxSPKRzi1U9z9ylgme3BX6aNHFjMdDdrKGq5NtQa413aSvAw7Cqq1nirunxWcvvFY+B0dwXTtfrag4E0uRkxXYuz2mzn3jgLvWD/gCrlY7nR38C7wAAAABJRU5ErkJggg=="
+                     style="height: 11px; margin-left: 6px;">
+                </span>
+            </a>
+        </div>
+        <br>
+        <!--项目经历3-->
+        <div class="module">
+            <br>
+            <div style="display: flex">
+                <div style="display: inline-block; flex: 1; margin-right: 20px">
+                    <pre class="title3">C919 FMS国产化及提升项目</pre>
+                    <ul>
+                        <li><span>项目国产化阶段负责FMS性能管理功能的系统设计及软件开发。提升阶段负责系统需求团队（15人+）管理，协同国外专家开展基于系统主要特征的FMS系统需求捕获与定义（形成系统层级需求8000余条）。</span>
+                        </li>
+                    </ul>
+                </div>
+                <div id="swiper_project_3" class="carousel slide" data-bs-ride="carousel"
+                     style="display: inline-block; width: 600px">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#swiper_project_3" data-bs-slide-to="0"
+                                class="active"></button>
+                        <button type="button" data-bs-target="#swiper_project_3" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#swiper_project_3" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#swiper_project_3" data-bs-slide-to="3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item swiper-block active"
+                             style="background-image: url(./img/fms/v_model.png)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/fms/arp4754_1.png)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/fms/八大过程.jpg)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/fms/变更过程.JPG)">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#swiper_project_3"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#swiper_project_3"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!--项目经历4-->
+        <div class="module">
+            <br>
+            <div style="display: flex">
+                <div id="swiper_project_4" class="carousel slide" data-bs-ride="carousel"
+                     style="display: inline-block; width: 600px">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#swiper_project_4" data-bs-slide-to="0"
+                                class="active"></button>
+                        <button type="button" data-bs-target="#swiper_project_4" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#swiper_project_4" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#swiper_project_4" data-bs-slide-to="3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item swiper-block active"
+                             style="background-image: url(./img/ag600/AG600_1.jpg)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/ag600/AG600_2.jpg)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/ag600/AG600_3.jpg)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/ag600/AG600_4.jpg)">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#swiper_project_4"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#swiper_project_4"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+                <div style="display: inline-block; flex: 1; margin-right: 20px">
+                    <pre class="title3">AG600（蛟龙）改型FMS项目</pre>
+                    <ul>
+                        <li><span>此型号项目研制的FMS系统装备于国产大型水陆两栖飞机AG600，个人负责FMS性能管理功能的系统设计及软件开发（C）。</span></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="https://baike.baidu.com/item/AG600%E6%B0%B4%E9%99%86%E4%B8%A4%E6%A0%96%E9%A3%9E%E6%9C%BA/19754338?fromtitle=AG600&fromid=16968783&fr=aladdin"
+               style="float: right;">
+                <span>了解详情</span>
+                <span style=" height: 11px;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAWCAYAAAD0OH0aAAABwElEQVQ4T5WSvWtTYRTGf89NNdpFbB0qDi7FQZ2UoqW5aRYndVEncfWr0BuDIm7e1UHbGwtqwEk3B10c/IKY21LFuqh/QRedKhRsEZJ75Cb3hmpuAp7tfc/zO+953nPEf4ZSvevZrMS+RqBbg2oI35ziT+bM8GKhxJVGoEf9oBR4ZsaZRNREnAoDvcqC2i0dvWTDwzuoAxPx2WDdiSg0FvT1X6jrYWLGxvI5PkjsT0SrOBwP5/V9K9QF4supih1ymiwhdiV+Vn5tMv25po0U+guIL6fLdiIyXgLb2iLxItzNWXxFnWNGuGW7iFHbkroXVnW9LxAnXM/uADe7kMNMOK8HmS+0RWZyr7GCcST97kgc7gsUPTtvxlPUaVtQa1R1ORMoeVZowVsgn1R/nRvhZN1XswcoVWy81WIZ2JNU/vbbmPp4X+s9picrNjLUER/o+OBHJI4tVbXaM4eDvm0fXeMNUOx4ZiPnUHof6FPmpN2yPcG4kOxSPKRzi1U9z9ylgme3BX6aNHFjMdDdrKGq5NtQa413aSvAw7Cqq1nirunxWcvvFY+B0dwXTtfrag4E0uRkxXYuz2mzn3jgLvWD/gCrlY7nR38C7wAAAABJRU5ErkJggg=="
+                     style="height: 11px; margin-left: 6px;">
+                </span>
+            </a>
+        </div>
+        <br>
+        <!--项目经历5-->
+        <div class="module">
+            <br>
+            <pre class="title3">十三五预研项目</pre>
+            <ul>
+                <li><span>此预研项目研究基于第一性原理实现的FMS性能计算功能。个人负责四维航迹运行控制技术（风模型构建、高精度ETA、RTA控制等）的算法和软件开发（C++）。算法预测精度达到波音BPS软件计算同等精度。</span>
+                </li>
+            </ul>
+            <a href="./doc/一种基于第一法则的飞行管理系统爬升性能预测算法.pdf" target="_blank">
+                <span>了解详情</span>
+                <span style=" height: 11px;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAWCAYAAAD0OH0aAAABwElEQVQ4T5WSvWtTYRTGf89NNdpFbB0qDi7FQZ2UoqW5aRYndVEncfWr0BuDIm7e1UHbGwtqwEk3B10c/IKY21LFuqh/QRedKhRsEZJ75Cb3hmpuAp7tfc/zO+953nPEf4ZSvevZrMS+RqBbg2oI35ziT+bM8GKhxJVGoEf9oBR4ZsaZRNREnAoDvcqC2i0dvWTDwzuoAxPx2WDdiSg0FvT1X6jrYWLGxvI5PkjsT0SrOBwP5/V9K9QF4supih1ymiwhdiV+Vn5tMv25po0U+guIL6fLdiIyXgLb2iLxItzNWXxFnWNGuGW7iFHbkroXVnW9LxAnXM/uADe7kMNMOK8HmS+0RWZyr7GCcST97kgc7gsUPTtvxlPUaVtQa1R1ORMoeVZowVsgn1R/nRvhZN1XswcoVWy81WIZ2JNU/vbbmPp4X+s9picrNjLUER/o+OBHJI4tVbXaM4eDvm0fXeMNUOx4ZiPnUHof6FPmpN2yPcG4kOxSPKRzi1U9z9ylgme3BX6aNHFjMdDdrKGq5NtQa413aSvAw7Cqq1nirunxWcvvFY+B0dwXTtfrag4E0uRkxXYuz2mzn3jgLvWD/gCrlY7nR38C7wAAAABJRU5ErkJggg=="
+                     style="height: 11px; margin-left: 6px;">
+                </span>
+            </a>
+        </div>
+        <br>
+        <!--项目经历6-->
+        <div class="module">
+            <br>
+            <div style="display: flex">
+                <div style="display: inline-block; flex: 1; margin-right: 20px">
+                    <pre class="title3">小型倾转四旋翼无人机研制项目</pre>
+                    <ul>
+                        <li><span>项目设计并实现了前后机翼可共同倾转的小型倾转四旋翼无人机原型机。原型机具备垂直起降、悬停、切换固定翼飞行等能力。个人负责原型机的构型设计、动力驱动系统设计、飞控开发（嵌入式）、地面站开发等。</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="swiper_research_1" class="carousel slide" data-bs-ride="carousel"
+                     style="display: inline-block; width: 800px">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#swiper_research_1" data-bs-slide-to="0"
+                                class="active"></button>
+                        <button type="button" data-bs-target="#swiper_research_1" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#swiper_research_1" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#swiper_research_1" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#swiper_research_1" data-bs-slide-to="4"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item swiper-block active"
+                             style="background-image: url(./img/research/prototype.JPG)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/research/AC3D_model.JPG)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/research/AC3D_model_3.JPG)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/research/tilt.JPG)">
+                        </div>
+                        <div class="carousel-item swiper-block"
+                             style="background-image: url(./img/research/modules.JPG)">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#swiper_research_1"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#swiper_research_1"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+
+            <a href="https://kns.cnki.net/kcms2/article/abstract?v=3uoqIhG8C475KOm_zrgu4lQARvep2SAkWfZcByc-RON98J6vxPv10bbcK9uidzaa2N-k2XUOyv2kAK8vQd-htZdDFgF3p8ys&uniplatform=NZKPT">
+                <span>了解详情</span>
+                <span style=" height: 11px;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAWCAYAAAD0OH0aAAABwElEQVQ4T5WSvWtTYRTGf89NNdpFbB0qDi7FQZ2UoqW5aRYndVEncfWr0BuDIm7e1UHbGwtqwEk3B10c/IKY21LFuqh/QRedKhRsEZJ75Cb3hmpuAp7tfc/zO+953nPEf4ZSvevZrMS+RqBbg2oI35ziT+bM8GKhxJVGoEf9oBR4ZsaZRNREnAoDvcqC2i0dvWTDwzuoAxPx2WDdiSg0FvT1X6jrYWLGxvI5PkjsT0SrOBwP5/V9K9QF4supih1ymiwhdiV+Vn5tMv25po0U+guIL6fLdiIyXgLb2iLxItzNWXxFnWNGuGW7iFHbkroXVnW9LxAnXM/uADe7kMNMOK8HmS+0RWZyr7GCcST97kgc7gsUPTtvxlPUaVtQa1R1ORMoeVZowVsgn1R/nRvhZN1XswcoVWy81WIZ2JNU/vbbmPp4X+s9picrNjLUER/o+OBHJI4tVbXaM4eDvm0fXeMNUOx4ZiPnUHof6FPmpN2yPcG4kOxSPKRzi1U9z9ylgme3BX6aNHFjMdDdrKGq5NtQa413aSvAw7Cqq1nirunxWcvvFY+B0dwXTtfrag4E0uRkxXYuz2mzn3jgLvWD/gCrlY7nR38C7wAAAABJRU5ErkJggg=="
+                     style="height: 11px; margin-left: 6px;">
+                </span>
+            </a>
+        </div>
+        <br>
+    </div>
+
+    <!--学术经历模块-->
+    <div id="research_exp" class="card" style="height: 0px;visibility: hidden">
+        <h3>学术经历</h3>
+        <!--经历1-->
+        <!--经历2-->
+        <div class="module">
+            <br>
+            <pre class="title3">项目2</pre>
+            <ul>
+                <li><span></span></li>
+            </ul>
+            <a href="CV.html">
+                <span>了解详情</span>
+                <span style=" height: 11px;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAWCAYAAAD0OH0aAAABwElEQVQ4T5WSvWtTYRTGf89NNdpFbB0qDi7FQZ2UoqW5aRYndVEncfWr0BuDIm7e1UHbGwtqwEk3B10c/IKY21LFuqh/QRedKhRsEZJ75Cb3hmpuAp7tfc/zO+953nPEf4ZSvevZrMS+RqBbg2oI35ziT+bM8GKhxJVGoEf9oBR4ZsaZRNREnAoDvcqC2i0dvWTDwzuoAxPx2WDdiSg0FvT1X6jrYWLGxvI5PkjsT0SrOBwP5/V9K9QF4supih1ymiwhdiV+Vn5tMv25po0U+guIL6fLdiIyXgLb2iLxItzNWXxFnWNGuGW7iFHbkroXVnW9LxAnXM/uADe7kMNMOK8HmS+0RWZyr7GCcST97kgc7gsUPTtvxlPUaVtQa1R1ORMoeVZowVsgn1R/nRvhZN1XswcoVWy81WIZ2JNU/vbbmPp4X+s9picrNjLUER/o+OBHJI4tVbXaM4eDvm0fXeMNUOx4ZiPnUHof6FPmpN2yPcG4kOxSPKRzi1U9z9ylgme3BX6aNHFjMdDdrKGq5NtQa413aSvAw7Cqq1nirunxWcvvFY+B0dwXTtfrag4E0uRkxXYuz2mzn3jgLvWD/gCrlY7nR38C7wAAAABJRU5ErkJggg=="
+                     style="height: 11px; margin-left: 6px;">
+                </span>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="card" id="video" style="height: 0px;visibility: hidden">
+        <div class="card-header">
+            <a class="btn"
+               href="https://www.bilibili.com/video/BV1np4y1Q7mu/?spm_id_from=333.337.search-card.all.click&vd_source=57e1d321f8a3595c9a8cc786a75ecc39">
+                <h3>Airbus Vedio</h3>
+            </a>
+        </div>
+        <iframe id="hanoi-vedio"
+                src="//player.bilibili.com/player.html?aid=722499563&bvid=BV1np4y1Q7mu&cid=464540894&page=1"
+                scrolling="yes" overflow-x:hidden;overflow-y:auto; framespacing="0" allowfullscreen="true">
+        </iframe>
+    </div>
+    <!--</div>-->
+
+
+    <a href="#swiper-top-1" class="fixed-bottom" id="totop" title="前进4">
+        <svg class="icon"
+             style="width: 4em;height: 3.5em;vertical-align: middle;fill: currentColor;overflow: hidden;position: fixed;bottom: 10px;right:10px;color:rgb(254, 229, 0)"
+             viewBox="0 0 1024 1024">
+            <path
+                    d="M838.656 767.616l0 17.344-201.344-40.576c-12.992 43.456-65.152 76.736-125.952 76.736-60.864 0-113.024-33.344-126.016-78.208l-199.872 39.104 0-17.344c0-98.496 27.52-169.472 89.728-228.864C253.44 254.848 379.456 76.736 504 4.288L511.296 0l7.232 4.288c124.608 72.448 249.088 250.56 228.864 531.584C811.136 595.264 838.656 666.24 838.656 767.616zM574.976 417.152c37.632-34.752 40.512-94.144 5.76-131.84C545.984 247.68 486.656 244.736 448.96 279.488c-37.632 34.752-40.512 94.208-5.76 131.84C477.952 449.024 537.344 451.904 574.976 417.152zM558.4 916.8C558.4 958.784 512 1024 512 1024s-46.336-69.568-46.336-107.2c0-31.872 20.224-57.92 46.336-57.92S558.4 884.928 558.4 916.8z"
+                    p-id="3101"></path>
+        </svg>
+    </a>
+
+
+</div>
+<footer>
+    <br>
+    <div style="text-align: center;"><b style="font-size:medium">&copy; 2023 Copyright 沈杨杨</b></div>
+    <br>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+    new Swiper(".swiper", {
+        loop: true,
+        effect: 'coverflow',
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        speed: 1000,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: false,
+        },
+        breakpoints: {
+            5000: {
+                centeredSlides: false,
+                coverflowEffect: {
+                    depth: 0,
+                    rotate: 0,
+                    stretch: -10,
+                }
+            }
+        },
+        autoplay: {
+            delay: 1500,
+        },
+        coverflowEffect: {
+            depth: 80,
+            rotate: 50,
+            stretch: 20,
+        }
+    })
+</script>
+
+</body>
+
+</html>
